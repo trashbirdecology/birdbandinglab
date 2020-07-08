@@ -1,3 +1,9 @@
+# ignore keys
+config.json
+
+# ignore py (elsapy) subdirectory until i get it working
+py/
+
 # History files
 .Rhistory
 .Rapp.history
@@ -38,3 +44,4 @@ vignettes/*.pdf
 # R Environment Variables
 .Renviron
 .Rproj.user
+.DS_Store
