@@ -1,0 +1,29 @@
+---
+title: "bbl"
+author: "JBurnett"
+date: "7/8/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(include=FALSE)
+
+## libraries
+library(dplyr)
+library(bibliometrix)
+# library(crossref)
+# library(tidyr)
+```
+
+Use rcrossref to retrieve the bibtex metadata for each of the DOIs from Tony's list 
+```{r bib-to-df}
+file="data-raw/scopus_5-28-2020.bib"
+bib_df <- convert2df(file = file, dbsource = "isi", format = "bibtex")
+```
+
+```{r}
+results <- biblioAnalysis(bib_df, sep = ";")
+```
+```{r summary}
+S <- summary(object = results, k = 10, pause = FALSE)
+```
